@@ -8,6 +8,8 @@ const ProductCard = (props) => {
   const cart = useSelector((state)=>state.cartt.cart)
   const isIteminCart = cart.some((item)=> item.id === props.item.id)
   const dispatch= useDispatch();//to call redux we have to use dispatch 
+
+  
     // const addItem = () => {
     //     props.setCart([...props.cart,props.item]);
     //     console.log(props.cart)
@@ -19,6 +21,8 @@ const ProductCard = (props) => {
      const handlecart=()=>{
       dispatch(addItem(props.item));
      }
+
+
     return (
       
       // < Link to={`/Products/${props.item.id}`}

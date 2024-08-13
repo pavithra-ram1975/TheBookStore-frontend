@@ -12,7 +12,8 @@ const Products = (props) => {
 
   
   const getProducts = async()=>{
-    const res = await axios.get('https://thebookstore-c7kj.onrender.com/getproducts')
+    const res = await axios.get('https://thebookstore-c7kj.onrender.com/products')
+    // const res = await axios.get('http:/localhost:2525/products');
     console.log(res.data)
     dispatch(setProducts(res.data))
   };

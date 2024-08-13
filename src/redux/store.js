@@ -5,6 +5,7 @@ import cartSlice from "./cartSlice";
     reducer:{
         counter: counterSlice,
         cartt: cartSlice
+        
     }
  })
  export default store;
