@@ -3,12 +3,14 @@ import ProductCard from "./Productcard";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { setProducts } from "../redux/searchSlice";
 const Products = (props) => {
+  const dispatch = useDispatch()
   useEffect(()=>{
     getProducts();
   },[])
 
-  const dispatch = useDispatch()
+  
   const getProducts = async()=>{
     const res = await axios.get('https://thebookstore-c7kj.onrender.com/getproducts')
     console.log(res.data)
