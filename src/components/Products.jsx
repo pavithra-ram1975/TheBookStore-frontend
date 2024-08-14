@@ -2,7 +2,7 @@ import { PRODUCTS } from "../constants";
 import ProductCard from "./Productcard";
 import { useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/searchSlice";
 const Products = (props) => {
   const dispatch = useDispatch()
@@ -17,6 +17,7 @@ const Products = (props) => {
     console.log(res.data)
     dispatch(setProducts(res.data))
   };
+  const searchlist = useSelector((state)=>state.searchSlice.searchlist)
  
 
   return (

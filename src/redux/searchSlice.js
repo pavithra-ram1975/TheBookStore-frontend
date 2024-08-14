@@ -7,7 +7,7 @@ const searchSlice=createSlice({
     },
     reducers:{
         setProducts:(state,action)=>{
-            state.items=action.payload
+            state.searchList=action.payload
         },
         searchProducts:(state,action)=>{
             if(action.payload===''){
