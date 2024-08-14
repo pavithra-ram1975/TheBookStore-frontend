@@ -89,22 +89,19 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    const payload = {
-      email: email,
-      password: password
-    };
-    console.log(payload);
-
     try {
       if (email === '' || password === '') {
             alert('Please fill the required fields.');
             return;
       }
 
+      const payload = {
+        email: email,
+        password: password
+      };
+      console.log(payload);
       // const res = await axios.post('http://localhost:2525/users/login', payload);
       const res = await axios.post("https://thebookstore-c7kj.onrender.com/users/login", payload);
-
       localStorage.setItem("token", res.data);
       navigate('/Products');
     } catch (error) {

@@ -6,8 +6,10 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleRegister = (e) => {
+
+  const handleRegister = async(e) => {
     e.preventDefault();
     if (email === '' || password === '' || confirmPassword === '') {
       alert('Please fill in all fields.');
@@ -18,8 +20,20 @@ const Register = () => {
       alert('Passwords do not match.');
       return;
     }
-    navigate('/');
+    try {
+      const res = await axios.post('https://thebookstore-c7kj.onrender.com/users/register', { email, password });
+      if(res.data && res.data.msg){
+        setMessage(res.data.msg);
+      navigate('/Login');}
+      else {
+        setMessage("Unexpected response format");
+      }
+    } 
+    catch (err) {
+      setMessage(err.response?.data?.msg || "Registration failed ");
+    }
   };
+    
   return (
     <div className='auth-body'>
       <div className="auth-container">
